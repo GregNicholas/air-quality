@@ -1,4 +1,6 @@
 import react, { useState } from "react";
+import OutsideClickHandler from "react-outside-click-handler";
+
 import {
   Main,
   DropDownContainer,
@@ -20,31 +22,35 @@ export default function Select({
 
   return (
     <Main>
-      <h1>Choose {category}</h1>
-      <DropDownContainer>
-        <DropDownHeader onClick={toggleDropDown}>
-          {selectedOption || "-select-"}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options.map((option) => {
-                return (
-                  <ListItem
-                    key={Math.random()}
-                    onClick={() => {
-                      selectOption(option);
-                      setIsOpen(false);
-                    }}
-                  >
-                    {option}
-                  </ListItem>
-                );
-              })}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
+      <label>
+        Choose {category}
+        <DropDownContainer>
+          <DropDownHeader onClick={toggleDropDown}>
+            {selectedOption || "-select-"}
+          </DropDownHeader>
+          {isOpen && (
+            <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
+              <DropDownListContainer>
+                <DropDownList>
+                  {options.map((option) => {
+                    return (
+                      <ListItem
+                        key={Math.random()}
+                        onClick={() => {
+                          selectOption(option);
+                          setIsOpen(false);
+                        }}
+                      >
+                        {option}
+                      </ListItem>
+                    );
+                  })}
+                </DropDownList>
+              </DropDownListContainer>
+            </OutsideClickHandler>
+          )}
+        </DropDownContainer>
+      </label>
     </Main>
   );
 }

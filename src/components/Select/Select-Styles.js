@@ -3,16 +3,21 @@ import styled from "styled-components";
 export const Main = styled("div")`
   font-family: sans-serif;
   background: #e1e1e1;
+  padding: 0 1rem;
   height: 100%;
+  width: 350px;
+  text-align: end;
+  border-radius: 5px;
+  margin: 0.5rem 0;
 `;
 export const DropDownContainer = styled("div")`
   width: 12rem;
   margin: 0 auto;
   padding: 1rem;
+  display: inline-block;
 `;
 export const DropDownHeader = styled("div")`
   text-align: center;
-  margin-bottom: 0.8em;
   padding: 0.4em 0.4em 0.4em 0.4em;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -21,7 +26,10 @@ export const DropDownHeader = styled("div")`
   color: #3faffa;
   background: #ffffff;
 `;
-export const DropDownListContainer = styled("div")``;
+export const DropDownListContainer = styled("div")`
+  position: absolute;
+  width: 10rem;
+`;
 export const DropDownList = styled("ul")`
   height: 15rem;
   overflow: scroll;
@@ -40,7 +48,6 @@ export const DropDownList = styled("ul")`
 `;
 export const ListItem = styled("li")`
   list-style: none;
-  margin-bottom: 0.8em;
   padding: 0.5rem;
   text-align: center;
   &:hover {
