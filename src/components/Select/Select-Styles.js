@@ -13,7 +13,7 @@ export const DropDownContainer = styled("div")`
 export const DropDownHeader = styled("div")`
   text-align: center;
   margin-bottom: 0.8em;
-  padding: 0.4em 2em 0.4em 1em;
+  padding: 0.4em 0.4em 0.4em 0.4em;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
@@ -42,6 +42,7 @@ export const ListItem = styled("li")`
   list-style: none;
   margin-bottom: 0.8em;
   padding: 0.5rem;
+  text-align: center;
   &:hover {
     background-color: lightblue;
     cursor: pointer;

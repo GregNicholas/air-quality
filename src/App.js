@@ -4,7 +4,7 @@ import "./styles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "./components/Select/Select";
-// import { fetchData } from "./fetch";
+import { fetchStates } from "./fetch";
 // import useFetch from "react-fetch-hook";
 
 const apiBaseURL = "https://api.airvisual.com/v2/";
@@ -12,15 +12,18 @@ const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
 
 export default function App() {
   const [countries, setCountries] = useState();
+  const [states, setStates] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
 
   const fetchData = (params) => {
     axios
       .get(`${apiBaseURL}${params}${API_KEY}`)
       .then((response) => {
-        setCountries(response.data.data);
+        const countries = response.data.data.map((i) => i.country);
+        setCountries(countries);
       })
       .catch((error) => {
         setError(error);
@@ -34,6 +37,14 @@ export default function App() {
     fetchData(params);
   }, []);
 
+  useEffect(() => {
+    if (selectedCountry) {
+      setLoading(true);
+      const params = `states?country=${selectedCountry}&`;
+      fetchStates(params, setStates, setError, setLoading);
+    }
+  }, [selectedCountry]);
+  console.log(states);
   return (
     <div className="App">
       <h1>Air Quality</h1>
@@ -43,11 +54,21 @@ export default function App() {
       )}
       {countries && (
         <Select
+          category="Country"
           options={countries}
           selectedOption={selectedCountry}
           selectOption={(option) => {
-            console.log(option.country);
-            setSelectedCountry(option.country);
+            setSelectedCountry(option);
+          }}
+        />
+      )}
+      {selectedCountry && (
+        <Select
+          category="State"
+          options={states}
+          selectedOption={selectedState}
+          selectOption={(option) => {
+            setSelectedState(option);
           }}
         />
       )}

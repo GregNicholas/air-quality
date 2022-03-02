@@ -8,14 +8,19 @@ import {
   ListItem
 } from "./Select-Styles";
 
-export default function Select({ options, selectedOption, selectOption }) {
+export default function Select({
+  options,
+  selectedOption,
+  selectOption,
+  category
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropDown = () => setIsOpen((prev) => !isOpen);
 
   return (
     <Main>
-      <h1>Choose Country</h1>
+      <h1>Choose {category}</h1>
       <DropDownContainer>
         <DropDownHeader onClick={toggleDropDown}>
           {selectedOption || "-select-"}
@@ -32,7 +37,7 @@ export default function Select({ options, selectedOption, selectOption }) {
                       setIsOpen(false);
                     }}
                   >
-                    {option.country}
+                    {option}
                   </ListItem>
                 );
               })}
