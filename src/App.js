@@ -1,39 +1,39 @@
+// https://andela.com/insights/react-js-tutorial-on-creating-a-custom-select-dropdown/
+
 import "./styles.css";
 import { useState, useEffect } from "react";
-import useFetch from "react-fetch-hook";
+import axios from "axios";
+import Select from "./components/Select/Select";
+// import { fetchData } from "./fetch";
+// import useFetch from "react-fetch-hook";
 
-const MY_KEY = "e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
+const apiBaseURL = "https://api.airvisual.com/v2/";
+const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
 
 export default function App() {
   const [countries, setCountries] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const link =
-    "https://api.airvisual.com/v2/countries?key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
-  // const { loading, data, error} = useFetch(
-  //   "https://api.airvisual.com/v2/countries?key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d"
-  // );
+  const [selectedCountry, setSelectedCountry] = useState("");
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        "https://api.airvisual.com/v2/countries?key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d"
-      );
-      const data = await response.json();
-      //console.log(data);
-      setCountries(data.data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setError(error);
-      setLoading(false);
-    }
+  const fetchData = (params) => {
+    axios
+      .get(`${apiBaseURL}${params}${API_KEY}`)
+      .then((response) => {
+        setCountries(response.data.data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchData();
+    setLoading(true);
+    const params = "countries?";
+    fetchData(params);
   }, []);
+
   return (
     <div className="App">
       <h1>Air Quality</h1>
@@ -41,14 +41,16 @@ export default function App() {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      <ul>
-        {countries &&
-          countries.map(({ country }) => (
-            <li key={country}>
-              <h3>{country}</h3>
-            </li>
-          ))}
-      </ul>
+      {countries && (
+        <Select
+          options={countries}
+          selectedOption={selectedCountry}
+          selectOption={(option) => {
+            console.log(option.country);
+            setSelectedCountry(option.country);
+          }}
+        />
+      )}
     </div>
   );
 }
