@@ -50,14 +50,12 @@ export default function ChooseLocation() {
   useEffect(() => {
     setSelectedCity("");
     if (selectedState) {
-      console.log(`cities?state=${selectedState}country=${selectedCountry}&`);
       setLoading(true);
       const params = `cities?state=${selectedState}&country=${selectedCountry}&`;
       fetchCities(params, setCities, setError, setLoading);
     }
   }, [selectedState]);
 
-  console.log(cities);
   return (
     <div>
       {loading && <h2>Loading...</h2>}

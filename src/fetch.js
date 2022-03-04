@@ -16,7 +16,6 @@ export const fetchStates = (params, setStates, setError, setLoading) => {
 };
 
 export const fetchCities = (params, setCities, setError, setLoading) => {
-  console.log(`${apiBaseURL}${params}${API_KEY}`);
   axios
     .get(`${apiBaseURL}${params}${API_KEY}`)
     .then((response) => {
@@ -27,5 +26,4 @@ export const fetchCities = (params, setCities, setError, setLoading) => {
       setError(error);
     });
   setLoading(false);
-  console.log(`${apiBaseURL}${params}${API_KEY}`);
 };
