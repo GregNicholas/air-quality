@@ -25,13 +25,16 @@ export const DropDownHeader = styled("div")`
   font-size: 1.3rem;
   color: #3faffa;
   background: #ffffff;
+  &:hover {
+    background: #eeeeee;
+  }
 `;
 export const DropDownListContainer = styled("div")`
   position: absolute;
   width: 10rem;
 `;
 export const DropDownList = styled("ul")`
-  height: 15rem;
+  max-height: 15rem;
   overflow: scroll;
   padding: 0;
   margin: 0;
@@ -51,7 +54,7 @@ export const ListItem = styled("li")`
   padding: 0.5rem;
   text-align: center;
   &:hover {
-    background-color: lightblue;
+    background-color: #eeeeee;
     cursor: pointer;
   }
   &:active {

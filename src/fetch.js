@@ -13,5 +13,19 @@ export const fetchStates = (params, setStates, setError, setLoading) => {
       setError(error);
     });
   setLoading(false);
+};
+
+export const fetchCities = (params, setCities, setError, setLoading) => {
+  console.log(`${apiBaseURL}${params}${API_KEY}`);
+  axios
+    .get(`${apiBaseURL}${params}${API_KEY}`)
+    .then((response) => {
+      const cities = response.data.data.map((i) => i.city);
+      setCities(cities);
+    })
+    .catch((error) => {
+      setError(error);
+    });
+  setLoading(false);
   console.log(`${apiBaseURL}${params}${API_KEY}`);
 };
