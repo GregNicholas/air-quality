@@ -13,7 +13,7 @@ export const Main = styled("button")`
     background: brown;
   }
   &:active {
-    transform: translateY(5px);
+    transform: translateY(2px);
     box-shadow: 3px 3px 24px gray;
   }
 `;
