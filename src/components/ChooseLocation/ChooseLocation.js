@@ -8,7 +8,7 @@ import { fetchStates, fetchCities, fetchLocationData } from "../../fetch";
 const apiBaseURL = "https://api.airvisual.com/v2/";
 const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
 
-export default function ChooseLocation() {
+export default function ChooseLocation({ locationData, setLocationData }) {
   const [countries, setCountries] = useState();
   const [states, setStates] = useState("");
   const [cities, setCities] = useState("");
@@ -17,10 +17,8 @@ export default function ChooseLocation() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-  const [locationData, setLocationData] = useState({});
 
   const fetchData = (params) => {
-    console.log("Fetching should only do once");
     axios
       .get(`${apiBaseURL}${params}${API_KEY}`)
       .then((response) => {
@@ -63,11 +61,14 @@ export default function ChooseLocation() {
     if (selectedCity) {
       setLoading(true);
       const params = `city?city=${selectedCity}&state=${selectedState}&country=${selectedCountry}&`;
+      console.log(
+        `https://api.airvisual.com/v2/${params}key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d`
+      );
       fetchLocationData(params, setLocationData, setError, setLoading);
     }
   }, [selectedCity]);
 
-  console.log(locationData);
+  console.log("location data: ", locationData);
   return (
     <div>
       {loading && <h2>Loading...</h2>}

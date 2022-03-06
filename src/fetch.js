@@ -38,8 +38,8 @@ export const fetchLocationData = (
   axios
     .get(`${apiBaseURL}${params}${API_KEY}`)
     .then((response) => {
-      const cities = response.data.data.map((i) => i.city);
-      setLocationData(cities);
+      const locData = response.data;
+      setLocationData(locData);
     })
     .catch((error) => {
       setError(error);

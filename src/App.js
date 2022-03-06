@@ -9,6 +9,7 @@ import { useSnackbar } from "react-simple-snackbar";
 export default function App() {
   const [openSnackbar, closeSnackbar] = useSnackbar();
   const [chooseLocation, setChooseLocation] = useState(false);
+  const [locationData, setLocationData] = useState({});
 
   return (
     <div className="App">
@@ -19,7 +20,12 @@ export default function App() {
         btnText={chooseLocation}
         clickHandler={() => setChooseLocation((prev) => !prev)}
       />
-      {chooseLocation && <ChooseLocation />}
+      {chooseLocation && (
+        <ChooseLocation
+          locationData={locationData}
+          setLocationData={setLocationData}
+        />
+      )}
     </div>
   );
 }
