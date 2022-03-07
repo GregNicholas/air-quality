@@ -8,12 +8,11 @@ import { fetchStates, fetchCities, fetchLocationData } from "../../fetch";
 const apiBaseURL = "https://api.airvisual.com/v2/";
 const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
 
-export default function ChooseLocation({ locationData, setLocationData }) {
+export default function ChooseLocation({ locationData, setLocationData, error, setError, loading, setLoading }) {
   const [countries, setCountries] = useState();
   const [states, setStates] = useState("");
   const [cities, setCities] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
@@ -25,11 +24,11 @@ export default function ChooseLocation({ locationData, setLocationData }) {
         const countries = response.data.data.map((i) => i.country);
         setCountries(countries);
         setError(false);
+        setLoading(false);
       })
       .catch((error) => {
         setError(error);
       });
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -68,7 +67,6 @@ export default function ChooseLocation({ locationData, setLocationData }) {
     }
   }, [selectedCity]);
 
-  console.log("location data: ", locationData);
   return (
     <div>
       {loading && <h2>Loading...</h2>}
