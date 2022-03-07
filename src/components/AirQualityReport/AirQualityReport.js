@@ -1,8 +1,6 @@
-import { Main } from "./AirQualityReport-Styles";
+import { LocationCard } from "./AirQualityReport-Styles";
 
 export default function AirQualityReport({ locData }) {
-
-return <div className={Main}>
-AirQreport
-</div>  
+  console.log("AQRep", locData);
+  return <LocationCard>AirQreport</LocationCard>;
 }

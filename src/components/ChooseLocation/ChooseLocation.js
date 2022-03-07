@@ -8,11 +8,16 @@ import { fetchStates, fetchCities, fetchLocationData } from "../../fetch";
 const apiBaseURL = "https://api.airvisual.com/v2/";
 const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
 
-export default function ChooseLocation({ locationData, setLocationData, error, setError, loading, setLoading }) {
+export default function ChooseLocation({
+  locationData,
+  setLocationData,
+  error,
+  setError
+}) {
   const [countries, setCountries] = useState();
   const [states, setStates] = useState("");
   const [cities, setCities] = useState("");
-  
+  const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");

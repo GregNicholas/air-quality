@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled("button")`
+  display: inline-block;
   font-family: sans-serif;
   transition: background 0.9s;
   background: #ff9494;
@@ -9,6 +10,7 @@ export const Main = styled("button")`
   border-radius: 5px;
   border: none;
   box-shadow: 8px 8px 24px gray;
+  margin-bottom: 1rem;
   &:hover {
     background: brown;
   }

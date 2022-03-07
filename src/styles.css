@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Coiny&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +17,12 @@ body {
   padding: 2rem 0;
 }
 
-h1 {
-  margin-bottom: 1rem;
+.logo {
+  display: inline-block;
+  color: #00bfff;
+  font-family: "Coiny", cursive;
+  font-size: 3rem;
+  text-decoration: underline;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
 }
