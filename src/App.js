@@ -7,6 +7,7 @@ import ChooseLocation from "./components/ChooseLocation/ChooseLocation";
 import AirQualityReport from "./components/AirQualityReport/AirQualityReport";
 import { fetchLocalData } from "./fetch";
 import { useSnackbar } from "react-simple-snackbar";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 export default function App() {
   const [openSnackbar, closeSnackbar] = useSnackbar();
@@ -15,12 +16,18 @@ export default function App() {
   const [locationData, setLocationData] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  let latitude = null,
+    longitude = null;
 
   useEffect(() => {
     fetchLocalData(setLocalData, setError, setLoading);
   }, []);
 
-  console.log("location data: ", localData);
+  if (localData) {
+    latitude = localData.data.location.coordinates[0];
+    longitude = localData.data.location.coordinates[1];
+    console.log(latitude, longitude);
+  }
 
   return (
     <div className="App">
@@ -43,7 +50,35 @@ export default function App() {
           setLoding={setLoading}
         />
       )}
-      {localData && <AirQualityReport data={localData} />}
+      {localData && latitude && longitude && (
+        <>
+          <AirQualityReport data={localData} />
+          <MapContainer
+            center={[51.505, -0.09]}
+            zoom={5}
+            style={{
+              height: "180px",
+              width: "362px",
+              maxWidth: "100%",
+              border: "1px solid blue"
+            }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[51.505, -0.09]}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </>
+      )}
+
+      {/* <div id="map"> */}
+
+      {/* </div> */}
     </div>
   );
 }
