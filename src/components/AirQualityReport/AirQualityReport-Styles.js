@@ -9,9 +9,22 @@ export const LocationCard = styled("div")`
   background: #fff;
   border-radius: 6px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 24%);
-  padding: 16px;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+`;
+
+export const AqiContainer = styled("div")`
+  width: 100%;
+  border-radius: 7px 7px 0 0;
+  overflow: hidden;
+  text-align: center;
+  max-height: 101px;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  background: #b0e867;
+  color: #607631;
 `;

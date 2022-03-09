@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Main = styled("button")`
   display: inline-block;
   font-family: sans-serif;
-  transition: background 0.9s;
+  cursor: pointer;
+  transition: background 0.3s;
   background: #ff9494;
   padding: 0.5rem 1rem;
   width: fit-content;
