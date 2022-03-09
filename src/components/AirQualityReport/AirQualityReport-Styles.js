@@ -26,8 +26,22 @@ export const AqiData = styled("div")`
   max-height: 101px;
   display: flex;
   flex-wrap: wrap;
-  background: #b0e867;
-  color: #607631;
+  background: ${(props) => {
+    if (props.aqi < 51) {
+      return "#b0e867";
+    } else if (props.aqi < 101) {
+      return "yellow";
+    } else if (props.aqi < 151) {
+      return "orange";
+    } else if (props.aqi < 201) {
+      return "red";
+    } else if (props.aqi < 301) {
+      return "purple";
+    } else {
+      return "brown";
+    }
+  }};
+  color: black;
 `;
 
 export const WeatherContainer = styled("div")`

@@ -32,6 +32,7 @@ export const DropDownHeader = styled("div")`
 export const DropDownListContainer = styled("div")`
   position: absolute;
   width: 10rem;
+  z-index: 1000;
 `;
 export const DropDownList = styled("ul")`
   max-height: 15rem;

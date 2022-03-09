@@ -8,6 +8,7 @@ import {
 export default function AirQualityReport({ data }) {
   let now = new Date();
   const offset = now.getTimezoneOffset();
+  const aqi = data.current.pollution.aqius;
   now = new Date(now.getTime() + offset * 60 * 1000);
   now = now.toISOString().split("T")[0];
   return (
@@ -16,11 +17,11 @@ export default function AirQualityReport({ data }) {
       <p>{now}</p>
       <div>
         <AqiWrapper>
-          <AqiData>
+          <AqiData aqi={aqi}>
             <div>face</div>
             <div>
               <div aqi-info>
-                <span>22</span>
+                <span>{aqi}</span>
                 <span>Good</span>
               </div>
               <div aqi-legend>
