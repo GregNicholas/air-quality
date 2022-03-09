@@ -1,7 +1,8 @@
 import {
   LocationCard,
-  CardData,
-  AqiContainer
+  AqiWrapper,
+  AqiData,
+  WeatherContainer
 } from "./AirQualityReport-Styles";
 
 export default function AirQualityReport({ data }) {
@@ -13,24 +14,28 @@ export default function AirQualityReport({ data }) {
     <LocationCard>
       <div>{data.city}</div>
       <p>{now}</p>
-      <CardData>
-        <AqiContainer>
-          <div>face</div>
-          <div aqi-info>
-            <span>22</span>
-            <span>Good</span>
-          </div>
-          <div aqi-legend>
-            <span>US AQI</span>
-            <span>Open your windows</span>
-          </div>
-        </AqiContainer>
-        <div className="weather-container">
+      <div>
+        <AqiWrapper>
+          <AqiData>
+            <div>face</div>
+            <div>
+              <div aqi-info>
+                <span>22</span>
+                <span>Good</span>
+              </div>
+              <div aqi-legend>
+                <span>US AQI</span>
+                <span>Open your windows</span>
+              </div>
+            </div>
+          </AqiData>
+        </AqiWrapper>
+        <WeatherContainer>
           <div className="temperature">55.4</div>
           <div className="humidity">62%</div>
           <div className="wind">1mp/h</div>
-        </div>
-      </CardData>
+        </WeatherContainer>
+      </div>
     </LocationCard>
   );
 }
