@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const LocationCard = styled("div")`
-  border: 1px solid magenta;
   width: 362px;
   max-width: 100%;
   z-index: 500;
   position: relative;
-  background: #fff;
+  background: #cdebf9;
   border-radius: 6px;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 24%);
+  box-shadow: 2px 2px 5px 0 gray;
   padding: 0.75rem;
+  margin: 0 auto 1rem auto;
 `;
 
 export const AqiWrapper = styled("div")`
