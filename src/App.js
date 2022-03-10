@@ -2,15 +2,14 @@
 
 import "./styles.css";
 import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar/Navbar";
 import Button from "./components/Button/Button.js";
 import ChooseLocation from "./components/ChooseLocation/ChooseLocation";
 import AirQualityReport from "./components/AirQualityReport/AirQualityReport";
 import Map from "./components/Map/Map";
 import { fetchLocalData } from "./fetch";
-import { useSnackbar } from "react-simple-snackbar";
 
 export default function App() {
-  const [openSnackbar, closeSnackbar] = useSnackbar();
   const [localData, setLocalData] = useState("");
   const [chooseLocation, setChooseLocation] = useState(false);
   const [locationData, setLocationData] = useState("");
@@ -41,42 +40,39 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1
-        className="logo"
-        onClick={() => openSnackbar("This is the content of the Snackbar.")}
-      >
-        AirQ
-      </h1>
-      <Button
-        btnText={chooseLocation}
-        clickHandler={() => {
-          if (chooseLocation) {
-            setLocationData("");
-            setChooseLocation(false);
-          } else {
-            setChooseLocation(true);
-          }
-        }}
-      />
-      {chooseLocation && (
-        <ChooseLocation
-          locationData={locationData}
-          setLocationData={setLocationData}
-          error={error}
-          setError={setError}
-          setLoding={setLoading}
+      <Navbar />
+      <div className="container">
+        <Button
+          btnText={chooseLocation}
+          clickHandler={() => {
+            if (chooseLocation) {
+              setLocationData("");
+              setChooseLocation(false);
+            } else {
+              setChooseLocation(true);
+            }
+          }}
         />
-      )}
-      {localData && latitude && longitude && (
-        <>
-          <AirQualityReport data={reportData} />
-          <Map mapData={reportData} center={center} zoom={zoom} />
-        </>
-      )}
+        {chooseLocation && (
+          <ChooseLocation
+            locationData={locationData}
+            setLocationData={setLocationData}
+            error={error}
+            setError={setError}
+            setLoding={setLoading}
+          />
+        )}
+        {localData && latitude && longitude && (
+          <>
+            <AirQualityReport data={reportData} />
+            <Map mapData={reportData} center={center} zoom={zoom} />
+          </>
+        )}
 
-      {/* <div id="map"> */}
+        {/* <div id="map"> */}
 
-      {/* </div> */}
+        {/* </div> */}
+      </div>
     </div>
   );
 }

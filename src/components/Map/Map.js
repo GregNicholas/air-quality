@@ -10,7 +10,8 @@ export default function Map({ mapData, center, zoom }) {
         height: "180px",
         width: "362px",
         maxWidth: "100%",
-        border: "1px solid blue"
+        border: "1px solid blue",
+        zIndex: "0"
       }}
     >
       <ChangeView center={center} zoom={zoom} />

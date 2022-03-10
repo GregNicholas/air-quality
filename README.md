@@ -1,6 +1,6 @@
 <h1 align="center">AirQ Air quality app</h1>
 
-<p align="center">AirQ allows a user to view a card with info about their local air quality, along with a map displaying the nearest measuring station with the air quality index included. The app will use location based on the user's IP if available, or the user may choose any available country, state, and city to view air quality there.
+<p>AirQ allows a user to view a card with info about their local air quality, along with a map displaying the nearest measuring station with the air quality index included. The app will use location based on the user's IP if available, or the user may choose any available country, state, and city to view air quality there.
 
 There is an attempt to fetch local data on page load. If the option to choose location is clicked, the drop down to select country, state, city will appear in order as each one is selected.
 
