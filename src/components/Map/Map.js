@@ -9,8 +9,8 @@ export default function Map({ mapData, center, zoom }) {
   });
 
   const greenIcon = new LeafIcon({
-    iconUrl: "./images/redcirc.png",
-    iconSize: [20, 20]
+    iconUrl: "./images/good.png",
+    iconSize: [20, 15]
   });
 
   const icon = greenIcon;
@@ -19,15 +19,15 @@ export default function Map({ mapData, center, zoom }) {
     <MapContainer
       center={center}
       zoom={zoom}
+      className="map-container"
       style={{
-        height: "180px",
-        width: "362px",
+        height: "300px",
         maxWidth: "100%",
         boxShadow: "2px 2px 5px 0 gray",
         borderRadius: "6px",
         zIndex: "0",
-        left: "50%",
-        transform: "translateX(-50%)"
+        margin: "0 auto",
+        position: "relative"
       }}
     >
       <ChangeView center={center} zoom={zoom} />

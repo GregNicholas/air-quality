@@ -1,4 +1,5 @@
-// https://andela.com/insights/react-js-tutorial-on-creating-a-custom-select-dropdown/
+import cloudsBg from "../public/images/clouds.png";
+import nightBg from "../public/images/nightSky.jpeg";
 
 import "./styles.css";
 import { useState, useEffect } from "react";
@@ -38,40 +39,51 @@ export default function App() {
     console.log(latitude, longitude);
   }
 
+  let background;
+  const hour = new Date().getHours();
+  if (hour >= 6 && hour <= 19) {
+    background = cloudsBg;
+  } else {
+    background = nightBg;
+  }
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
+    >
       <Navbar />
       <div className="container">
-        <Button
-          btnText={chooseLocation}
-          clickHandler={() => {
-            if (chooseLocation) {
-              setLocationData("");
-              setChooseLocation(false);
-            } else {
-              setChooseLocation(true);
-            }
-          }}
-        />
-        {chooseLocation && (
-          <ChooseLocation
-            locationData={locationData}
-            setLocationData={setLocationData}
-            error={error}
-            setError={setError}
-            setLoding={setLoading}
+        <section className="search-container">
+          <Button
+            btnText={chooseLocation}
+            clickHandler={() => {
+              if (chooseLocation) {
+                setLocationData("");
+                setChooseLocation(false);
+              } else {
+                setChooseLocation(true);
+              }
+            }}
           />
-        )}
-        {localData && latitude && longitude && (
-          <>
-            <AirQualityReport data={reportData} />
-            <Map mapData={reportData} center={center} zoom={zoom} />
-          </>
-        )}
-
-        {/* <div id="map"> */}
-
-        {/* </div> */}
+          {chooseLocation && (
+            <ChooseLocation
+              locationData={locationData}
+              setLocationData={setLocationData}
+              error={error}
+              setError={setError}
+              setLoding={setLoading}
+            />
+          )}
+        </section>
+        <section className="results-container">
+          {localData && latitude && longitude && (
+            <>
+              <AirQualityReport data={reportData} />
+              <Map mapData={reportData} center={center} zoom={zoom} />
+            </>
+          )}
+        </section>
       </div>
     </div>
   );

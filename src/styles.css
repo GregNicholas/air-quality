@@ -7,19 +7,52 @@
 }
 
 body {
-  background-image: url("./images/clouds.png");
-  background-size: cover;
   height: 100vh;
   color: #333;
 }
 
 .App {
+  /* background-image: url("./images/clouds.png"); */
+  background-size: cover;
   font-family: sans-serif;
   width: 100vw;
 }
 
 .container {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 1024px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.results-container {
+  margin: 1rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .results-container {
+    width: 90%;
+    max-width: 600;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .map-container {
+    width: 600px;
+    margin: 0 auto 1rem auto;
+  }
+}
+
+.search-container {
+  margin-right: 1rem;
+  min-width: 300px;
 }
 
 .logo {

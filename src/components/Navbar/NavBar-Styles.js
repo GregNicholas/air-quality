@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../device";
 
 export const NavBar = styled.header`
   margin-bottom: 0.5rem;
@@ -7,4 +8,8 @@ export const NavBar = styled.header`
   top: 0;
   height: 4.1rem;
   border-bottom: 1px solid gray;
+
+  @media ${devices.laptop} {
+    text-align: center;
+  }
 `;

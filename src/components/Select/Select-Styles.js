@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const Main = styled("div")`
   font-family: sans-serif;
   background: #e1e1e1;
-  padding: 0 1rem;
+  padding: 0 0 0 0.5rem;
   height: 100%;
-  width: 350px;
+  min-width: 320px;
+  max-width: 350px;
   text-align: end;
   border-radius: 5px;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0 0;
 `;
 export const DropDownContainer = styled("div")`
   width: 12rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.5rem;
   display: inline-block;
 `;
 export const DropDownHeader = styled("div")`
