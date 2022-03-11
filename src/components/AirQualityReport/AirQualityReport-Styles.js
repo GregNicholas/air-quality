@@ -31,24 +31,24 @@ export const AqiData = styled.div`
   overflow: hidden;
   text-align: center;
   max-height: 101px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 50px 1fr;
   background: ${(props) => {
-    if (props.aqi < 51) {
-      return "#A6CE39";
-    } else if (props.aqi < 101) {
-      return "#FFF000";
-    } else if (props.aqi < 151) {
-      return "#F68F1F";
-    } else if (props.aqi < 201) {
-      return "#EE2324";
-    } else if (props.aqi < 301) {
-      return "#8D4098";
-    } else {
-      return "#88181C";
-    }
+    return props.color;
   }};
   color: black;
+`;
+
+export const AqiLegend = styled.div`
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  border: 1px solid orange;
+`;
+
+export const AqiInfo = styled.div`
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  border: 1px solid blue;
 `;
 
 export const WeatherContainer = styled.div`
