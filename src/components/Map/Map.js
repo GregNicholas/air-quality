@@ -1,7 +1,20 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import * as L from "leaflet";
 import ChangeView from "../ChangeView/ChangeView";
+import green from "../../../public/images/good.png";
 
 export default function Map({ mapData, center, zoom }) {
+  const LeafIcon = L.Icon.extend({
+    options: {}
+  });
+
+  const greenIcon = new LeafIcon({
+    iconUrl: "./images/redcirc.png",
+    iconSize: [20, 20]
+  });
+
+  const icon = greenIcon;
+  console.log(green);
   return (
     <MapContainer
       center={center}
@@ -22,12 +35,14 @@ export default function Map({ mapData, center, zoom }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={center}>
+      <Marker position={center} icon={icon}>
         <Popup>
-          {mapData.city}
-          <br />
-          {mapData.state}, {mapData.country}
-          <br /> AQI: {mapData.current.pollution.aqius}
+          <div>
+            {mapData.city}
+            <br />
+            {mapData.state}, {mapData.country}
+            <br /> AQI: {mapData.current.pollution.aqius}
+          </div>
         </Popup>
       </Marker>
     </MapContainer>

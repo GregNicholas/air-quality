@@ -28,17 +28,17 @@ export const AqiData = styled("div")`
   flex-wrap: wrap;
   background: ${(props) => {
     if (props.aqi < 51) {
-      return "#b0e867";
+      return "#A6CE39";
     } else if (props.aqi < 101) {
-      return "yellow";
+      return "#FFF000";
     } else if (props.aqi < 151) {
-      return "orange";
+      return "#F68F1F";
     } else if (props.aqi < 201) {
-      return "red";
+      return "#EE2324";
     } else if (props.aqi < 301) {
-      return "purple";
+      return "#8D4098";
     } else {
-      return "brown";
+      return "#88181C";
     }
   }};
   color: black;
