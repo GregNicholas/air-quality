@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import * as L from "leaflet";
 import ChangeView from "../ChangeView/ChangeView";
-import green from "../../../public/images/good.png";
+import green from "../../images/good.png";
 
 export default function Map({ mapData, center, zoom }) {
   const LeafIcon = L.Icon.extend({
@@ -9,7 +9,7 @@ export default function Map({ mapData, center, zoom }) {
   });
 
   const greenIcon = new LeafIcon({
-    iconUrl: "./images/good.png",
+    iconUrl: "../../images/good.png",
     iconSize: [20, 15]
   });
 

@@ -1,5 +1,5 @@
-import cloudsBg from "../public/images/clouds.png";
-import nightBg from "../public/images/nightSky.jpeg";
+import cloudsBg from "./images/clouds.png";
+import nightBg from "./images/nightSky.jpeg";
 
 import "./styles.css";
 import { useState, useEffect } from "react";
