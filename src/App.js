@@ -1,5 +1,6 @@
 import cloudsBg from "./images/clouds.png";
 import nightBg from "./images/nightSky.jpeg";
+import dayBg from "./images/daysky2.jpg";
 
 import "./styles.css";
 import { useState, useEffect } from "react";
@@ -42,7 +43,7 @@ export default function App() {
   let background;
   const hour = new Date().getHours();
   if (hour >= 6 && hour <= 19) {
-    background = cloudsBg;
+    background = dayBg;
   } else {
     background = nightBg;
   }

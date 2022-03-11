@@ -57,15 +57,13 @@ body {
 
 .logo {
   display: inline-block;
-  color: #00bfff;
+  /* color: #00bfff; */
+  color: #fff;
   font-family: "Coiny", cursive;
   font-size: 3rem;
   line-height: 2rem;
   text-decoration: underline;
+  margin: 0.5rem 2rem 1.5rem 0;
   margin-right: 2rem;
   margin-bottom: 1.5rem;
 }
-
-/* #map {
-  height: 180px;
-} */

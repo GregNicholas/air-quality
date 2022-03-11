@@ -9,7 +9,6 @@ export const LocationCard = styled.div`
   background: #cdebf9;
   border-radius: 6px;
   box-shadow: 2px 2px 5px 0 gray;
-  padding: 0.75rem;
   margin: 0 0 1rem 0;
 
   @media ${devices.tablet} {
@@ -21,18 +20,16 @@ export const LocationCard = styled.div`
 
 export const AqiWrapper = styled.div`
   width: 100%;
-  border: 1px solid magenta;
   margin-top: 16px;
 `;
 
 export const AqiData = styled.div`
-  padding: 0.5rem;
-  border-radius: 7px 7px 0 0;
   overflow: hidden;
   text-align: center;
-  max-height: 101px;
   display: grid;
   grid-template-columns: 50px 1fr;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
   background: ${(props) => {
     return props.color;
   }};
@@ -40,22 +37,26 @@ export const AqiData = styled.div`
 `;
 
 export const AqiLegend = styled.div`
+  padding: 0.5rem;
   display: grid;
-  grid-template-columns: 50px 1fr;
-  border: 1px solid orange;
+  text-align: left;
+  grid-template-columns: 1fr;
 `;
 
 export const AqiInfo = styled.div`
+  padding: 0.5rem;
   display: grid;
-  grid-template-columns: 50px 1fr;
-  border: 1px solid blue;
+  grid-template-columns: 100px 1fr;
+  border-bottom: 1px solid gray;
 `;
 
 export const WeatherContainer = styled.div`
   border-radius: 0 0 6px 6px;
   border: 1px solid #e6e6e6;
   border-top: none;
+  padding: 0.5rem;
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 `;

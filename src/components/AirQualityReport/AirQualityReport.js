@@ -6,68 +6,70 @@ import {
   AqiLegend,
   WeatherContainer
 } from "./AirQualityReport-Styles";
+import { aqiInfo } from "../../aqiInfo";
+import { FaTemperatureHigh, FaWind } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
 
 export default function AirQualityReport({ data }) {
   let now = new Date();
   const offset = now.getTimezoneOffset();
   const aqi = data.current.pollution.aqius;
+  const weather = data.current.weather;
   now = new Date(now.getTime() + offset * 60 * 1000);
   now = now.toISOString().split("T")[0];
 
-  let color;
-  let warning;
-  let message;
+  console.log(aqiInfo.good);
+  let displayInfo = {};
+
   if (aqi < 51) {
-    color = "#A6CE39";
-    warning = "Good";
-    message = "It’s a great day to be active outside.";
+    displayInfo = { ...aqiInfo.good };
   } else if (aqi < 101) {
-    color = "#FFF000";
-    warning = "Moderate";
-    message = `Unusually sensitive people: Consider reducing
-    prolonged or heavy exertion. Watch for symptoms
-    such as coughing or shortness of breath. These are
-    signs to take it easier.`;
+    displayInfo = { ...aqiInfo.moderate };
   } else if (aqi < 151) {
-    color = "#F68F1F";
-    warning = "Unhealthy for Sensitive Groups";
+    displayInfo = { ...aqiInfo.unhehalthysensitive };
   } else if (aqi < 201) {
-    color = "#EE2324";
-    warning = "Unhealthy";
+    displayInfo = { ...aqiInfo.unhealthy };
   } else if (aqi < 301) {
-    color = "#8D4098";
-    warning = "Very Unhealthy";
+    displayInfo = { ...aqiInfo.veryunhealthy };
   } else {
-    color = "#88181C";
-    warning = "Hazardous";
+    displayInfo = { ...aqiInfo.hazardous };
   }
 
-  const faceStyle = { background: color };
+  const faceStyle = {
+    background: aqiInfo.color,
+    padding: "1rem 0.5rem",
+    textAlign: "center"
+  };
 
   return (
     <LocationCard>
-      <div>{data.city}</div>
-      <p>{now}</p>
+      <div style={{ padding: "1rem 1rem 0 1rem" }}>
+        <div style={{ fontWeight: "800", fontSize: "1.5rem" }}>{data.city}</div>
+        <p style={{ fontStyle: "italic" }}>{now}</p>
+      </div>
       <div>
         <AqiWrapper>
-          <AqiData color={color}>
-            <div style={faceStyle}>face</div>
-            <div style={{ border: "1px solid", width: "100%" }}>
+          <AqiData color={displayInfo.color}>
+            <div style={faceStyle}>{displayInfo.face}</div>
+            <div>
               <AqiInfo>
-                <span>{aqi}</span>
-                <span>{warning}</span>
+                <span>US AQI: {aqi}</span>
+                <span>{displayInfo.warning}</span>
               </AqiInfo>
-              <AqiLegend>
-                <span>US AQI</span>
-                <span>{message}</span>
-              </AqiLegend>
+              <AqiLegend>{displayInfo.message}</AqiLegend>
             </div>
           </AqiData>
         </AqiWrapper>
         <WeatherContainer>
-          <div className="temperature">55.4</div>
-          <div className="humidity">62%</div>
-          <div className="wind">1mp/h</div>
+          <div className="temperature">
+            <FaTemperatureHigh /> {weather.tp}&deg;C
+          </div>
+          <div className="humidity">
+            <WiHumidity /> {weather.hu}%
+          </div>
+          <div className="wind">
+            <FaWind /> {weather.ws} m/s
+          </div>
         </WeatherContainer>
       </div>
     </LocationCard>
