@@ -82,7 +82,6 @@ export default function Map({ mapData, center, zoom }) {
           </Popup>
         </Marker>
       </MapContainer>
-      <img src={green} alt="red" />
     </>
   );
 }
