@@ -1,18 +1,33 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import * as L from "leaflet";
 import ChangeView from "../ChangeView/ChangeView";
-import green from "/src/images/good.png";
-import yellow from "/src/images/moderate.png";
-import orange from "/src/images/sensitive.png";
-import red from "/src/images/unhealthy.png";
-import purple from "/src/images/veryunhealthy.png";
-import brown from "/src/images/hazardous.png";
+// import green from "../../images/good.png";
+// import yellow from "/src/images/moderate.png";
+// import orange from "/src/images/sensitive.png";
+// import red from "/src/images/unhealthy.png";
+// import purple from "/src/images/veryunhealthy.png";
+// import brown from "/src/images/hazardous.png";
+
+const green =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/KNYO-good.png";
+const yellow =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/VWN--moderate.png";
+const orange =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/medZ-sensitive.png";
+const red =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/jaGB-unhealthy.png";
+const purple =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/LQUs-veryunhealthy.png";
+const brown =
+  "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/L84U-hazardous.png";
 
 export default function Map({ mapData, center, zoom }) {
   const aqi = mapData.current.pollution.aqius;
-  let iconColor = green;
+  let iconColor =
+    "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/KNYO-good.png";
   if (aqi < 51) {
-    iconColor = green;
+    iconColor =
+      "https://uploads.codesandbox.io/uploads/user/144e9e2e-7384-4c6c-ae0f-e14a962e8dca/KNYO-good.png";
   } else if (aqi < 101) {
     iconColor = yellow;
   } else if (aqi < 151) {
@@ -67,6 +82,7 @@ export default function Map({ mapData, center, zoom }) {
           </Popup>
         </Marker>
       </MapContainer>
+      <img src={green} alt="red" />
     </>
   );
 }
