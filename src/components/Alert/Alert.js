@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import OutsideClickHandler from "react-outside-click-handler";
 
 import { Main } from "./Alert-Styles";
 

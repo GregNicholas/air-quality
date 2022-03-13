@@ -5,15 +5,15 @@ export const Main = styled("button")`
   font-family: sans-serif;
   cursor: pointer;
   transition: background 0.3s;
-  background: #ff9494;
+  background: #cdebf9;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   width: fit-content;
   border-radius: 5px;
   border: none;
-  box-shadow: 4px 4px 12px grey;
+  box-shadow: 4px 4px 15px black;
   &:hover {
-    background: brown;
+    background: #4debf9;
   }
   &:active {
     transform: translateY(2px);

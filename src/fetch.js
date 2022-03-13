@@ -17,17 +17,32 @@ export const fetchLocalData = (setLocalData, setError, setLoading) => {
   setLoading(false);
 };
 
+export const fetchCountries = (params, setCountries, setError, setLoading) => {
+  axios
+    .get(`${apiBaseURL}${params}${API_KEY}`)
+    .then((response) => {
+      const countries = response.data.data.map((i) => i.country);
+      setCountries(countries);
+      setError(false);
+      setLoading(false);
+    })
+    .catch((error) => {
+      setError(error);
+    });
+};
+
 export const fetchStates = (params, setStates, setError, setLoading) => {
   axios
     .get(`${apiBaseURL}${params}${API_KEY}`)
     .then((response) => {
       const states = response.data.data.map((i) => i.state);
       setStates(states);
+      setError(false);
+      setLoading(false);
     })
     .catch((error) => {
       setError(error);
     });
-  setLoading(false);
 };
 
 export const fetchCities = (params, setCities, setError, setLoading) => {

@@ -59,7 +59,7 @@ export default function Map({ mapData, center, zoom }) {
         style={{
           height: "300px",
           maxWidth: "100%",
-          boxShadow: "2px 2px 5px 0 gray",
+          boxShadow: "4px 4px 15px black",
           borderRadius: "6px",
           zIndex: "0",
           margin: "0 auto",

@@ -17,6 +17,7 @@ export default function App() {
   const [locationData, setLocationData] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [favorites, setFavorites] = useState([]);
   let latitude = null,
     longitude = null;
   const zoom = 7;
@@ -26,7 +27,7 @@ export default function App() {
   useEffect(() => {
     fetchLocalData(setLocalData, setError, setLoading);
   }, []);
-  console.log(localData);
+
   if (locationData) {
     reportData = locationData.data;
     longitude = reportData.location.coordinates[0];
@@ -37,7 +38,6 @@ export default function App() {
     longitude = reportData.location.coordinates[0];
     latitude = reportData.location.coordinates[1];
     center = [latitude, longitude];
-    console.log(latitude, longitude);
   }
 
   let background;
@@ -48,6 +48,21 @@ export default function App() {
     background = nightBg;
   }
 
+  const updateFavorites = (loc) => {
+    console.log("loc", loc);
+    if (!favorites.some((f) => f.city === loc.city && f.state === loc.state)) {
+      setFavorites((prev) => {
+        const newFavs = [...prev, loc];
+        return newFavs;
+      });
+    } else {
+      const removedFromFavs = favorites.filter(
+        (f) => f.city !== loc.city && f.state !== loc.state
+      );
+      setFavorites(removedFromFavs);
+    }
+  };
+
   return (
     <div
       className="App"
@@ -57,7 +72,7 @@ export default function App() {
       <div className="container">
         <section className="search-container">
           <Button
-            btnText={chooseLocation}
+            btnText={chooseLocation ? "use your location" : "choose location"}
             clickHandler={() => {
               if (chooseLocation) {
                 setLocationData("");
@@ -80,7 +95,11 @@ export default function App() {
         <section className="results-container">
           {localData && latitude && longitude && (
             <>
-              <AirQualityReport data={reportData} />
+              <AirQualityReport
+                data={reportData}
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+              />
               <Map mapData={reportData} center={center} zoom={zoom} />
             </>
           )}

@@ -1,9 +1,5 @@
 import { Main } from "./Button-Styles";
 
 export default function Button({ clickHandler, btnText }) {
-  return (
-    <Main onClick={clickHandler}>
-      {btnText ? "use your location" : "choose location"}
-    </Main>
-  );
+  return <Main onClick={clickHandler}>{btnText}</Main>;
 }

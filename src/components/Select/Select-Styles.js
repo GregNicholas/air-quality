@@ -10,6 +10,7 @@ export const Main = styled("div")`
   text-align: end;
   border-radius: 5px;
   margin: 0.5rem 0 0 0;
+  box-shadow: 4px 4px 15px black;
 `;
 export const DropDownContainer = styled("div")`
   width: 12rem;

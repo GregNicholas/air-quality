@@ -13,6 +13,7 @@ export const Main = styled("div")`
   border: 1px solid #ff8585;
   position: absolute;
   left: 50%;
+  z-index: 2000;
   transform: translateX(-50%);
   box-shadow: 8px 8px 24px gray;
   display: ${(props) => (props.disp ? "block" : "none")};

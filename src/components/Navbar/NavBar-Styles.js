@@ -8,8 +8,12 @@ export const NavBar = styled.header`
   top: 0;
   height: 4.1rem;
   border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-around;
 
   @media ${devices.laptop} {
     text-align: center;
+    padding-right: 20%;
+    padding-left: 20%;
   }
 `;

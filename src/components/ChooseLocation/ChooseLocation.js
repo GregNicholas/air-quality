@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
-import { fetchStates, fetchCities, fetchLocationData } from "../../fetch";
+import {
+  fetchCountries,
+  fetchStates,
+  fetchCities,
+  fetchLocationData
+} from "../../fetch";
 
 const apiBaseURL = "https://api.airvisual.com/v2/";
 const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
@@ -22,24 +27,30 @@ export default function ChooseLocation({
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
-  const fetchData = (params) => {
-    axios
-      .get(`${apiBaseURL}${params}${API_KEY}`)
-      .then((response) => {
-        const countries = response.data.data.map((i) => i.country);
-        setCountries(countries);
-        setError(false);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  };
+  // const fetchData = (params) => {
+  //   axios
+  //     .get(`${apiBaseURL}${params}${API_KEY}`)
+  //     .then((response) => {
+  //       const countries = response.data.data.map((i) => i.country);
+  //       setCountries(countries);
+  //       setError(false);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setError(error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const params = "countries?";
+  //   fetchData(params);
+  // }, []);
 
   useEffect(() => {
     setLoading(true);
     const params = "countries?";
-    fetchData(params);
+    fetchCountries(params, setCountries, setError, setLoading);
   }, []);
 
   useEffect(() => {

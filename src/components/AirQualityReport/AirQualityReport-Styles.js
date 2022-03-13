@@ -8,13 +8,27 @@ export const LocationCard = styled.div`
   position: relative;
   background: #cdebf9;
   border-radius: 6px;
-  box-shadow: 2px 2px 5px 0 gray;
+  box-shadow: 4px 4px 15px black;
   margin: 0 0 1rem 0;
 
   @media ${devices.tablet} {
     width: 100%;
     max-width: 600px;
     margin: 0 auto 1rem auto;
+  }
+`;
+
+export const LocationCardHeading = styled.div`
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Favorite = styled.div`
+  height: fit-content;
+  transition: 500ms;
+  &:hover {
+    color: red;
   }
 `;
 

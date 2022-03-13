@@ -1,5 +1,6 @@
 import React from "react";
 import { NavBar } from "./NavBar-Styles";
+import Button from "../Button/Button";
 import { useSnackbar } from "react-simple-snackbar";
 
 export default function Navbar() {
@@ -22,11 +23,21 @@ export default function Navbar() {
   };
   const [openSnackbar, closeSnackbar] = useSnackbar(options);
 
+  const handleFavorites = () => {
+    console.log("toggle favorites list");
+  };
+
   return (
     <NavBar>
       <h1 className="logo" onClick={() => openSnackbar("Breathe fresh air")}>
         AirQ
       </h1>
+      <div style={{ marginTop: ".5rem" }}>
+        <Button btnText={"Choose Location"} clickHandler={handleFavorites} />
+      </div>
+      <div style={{ marginTop: ".5rem" }}>
+        <Button btnText={"Favorites"} clickHandler={handleFavorites} />
+      </div>
     </NavBar>
   );
 }
