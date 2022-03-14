@@ -1,5 +1,9 @@
 import { Main } from "./Button-Styles";
 
-export default function Button({ clickHandler, btnText }) {
-  return <Main onClick={clickHandler}>{btnText}</Main>;
+export default function Button({ clickHandler, btnText, selected }) {
+  return (
+    <Main selected={selected} onClick={clickHandler}>
+      {btnText}
+    </Main>
+  );
 }

@@ -40,15 +40,7 @@ export default function Navbar({
       <BtnContainer>
         <div style={{ marginTop: ".5rem" }}>
           <Button
-            btnText="current location"
-            clickHandler={() => {
-              setChooseLocation("auto");
-              setLocationData("");
-            }}
-          />
-        </div>
-        <div style={{ marginTop: ".5rem" }}>
-          <Button
+            selected={chooseLocation === "lookup" ? true : false}
             btnText="choose location"
             clickHandler={() => {
               setChooseLocation("lookup");
@@ -57,9 +49,20 @@ export default function Navbar({
         </div>
         <div style={{ marginTop: ".5rem" }}>
           <Button
+            selected={chooseLocation === "favorites" ? true : false}
             btnText={"Favorites"}
             clickHandler={() => {
               setChooseLocation("favorites");
+            }}
+          />
+        </div>
+        <div style={{ marginTop: ".5rem" }}>
+          <Button
+            selected={chooseLocation === "auto" ? true : false}
+            btnText="current location"
+            clickHandler={() => {
+              setChooseLocation("auto");
+              setLocationData("");
             }}
           />
         </div>

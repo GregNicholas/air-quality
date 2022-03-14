@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Main = styled("div")`
   font-family: sans-serif;
-  background: #e1e1e1;
+  background: #cdebf9;
+  color: midnightblue;
   padding: 0 0 0 0.5rem;
   height: 100%;
   min-width: 320px;
@@ -25,7 +26,7 @@ export const DropDownHeader = styled("div")`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.3rem;
-  color: #3faffa;
+  color: midnightblue;
   background: #ffffff;
   &:hover {
     background: #eeeeee;
@@ -45,7 +46,7 @@ export const DropDownList = styled("ul")`
   border: 2px solid #e5e5e5;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #3faffa;
+  color: midnightblue;
   font-size: 1.3rem;
   font-weight: 500;
   &:first-child {

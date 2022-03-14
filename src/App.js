@@ -1,7 +1,6 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
-import Button from "./components/Button/Button.js";
 import ChooseLocation from "./components/ChooseLocation/ChooseLocation";
 import ChooseFavorites from "./components/ChooseFavorites/ChooseFavorites";
 import AirQualityReport from "./components/AirQualityReport/AirQualityReport";
@@ -81,17 +80,6 @@ export default function App() {
       <div className="container">
         {chooseLocation !== "auto" && (
           <section className="search-container">
-            {/* <Button
-            btnText={chooseLocation ? "use your location" : "choose location"}
-            clickHandler={() => {
-              if (chooseLocation) {
-                setLocationData("");
-                setChooseLocation(false);
-              } else {
-                setChooseLocation(true);
-              }
-            }}
-          /> */}
             {chooseLocation === "lookup" && (
               <ChooseLocation
                 locationData={locationData}
@@ -101,16 +89,19 @@ export default function App() {
                 setLoding={setLoading}
               />
             )}
-            {chooseLocation === "favorites" && (
-              <ChooseFavorites
-                favorites={favorites}
-                locationData={locationData}
-                setLocationData={setLocationData}
-                error={error}
-                setError={setError}
-                setLoding={setLoading}
-              />
-            )}
+            {chooseLocation === "favorites" &&
+              (favorites.length > 0 ? (
+                <ChooseFavorites
+                  favorites={favorites}
+                  locationData={locationData}
+                  setLocationData={setLocationData}
+                  error={error}
+                  setError={setError}
+                  setLoding={setLoading}
+                />
+              ) : (
+                <h2>No favorites selected!</h2>
+              ))}
           </section>
         )}
         <section className="results-container">

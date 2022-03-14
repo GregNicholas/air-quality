@@ -11,7 +11,6 @@ export default function ChooseLocation({
 }) {
   const [loading, setLoading] = useState(false);
   const [selectedFavorite, setSelectedFavorite] = useState("");
-  console.log("FAVORITES ", favorites);
 
   useEffect(() => {
     if (selectedFavorite) {

@@ -1,4 +1,3 @@
-//import "./styles.css";
 import { useState, useEffect } from "react";
 import Select from "../Select/Select";
 import Alert from "../Alert/Alert";
@@ -54,7 +53,7 @@ export default function ChooseLocation({ setLocationData, error, setError }) {
   }, [selectedCity]);
 
   if (error) {
-    console.log(error);
+    console.log("ERRRROROOORORRRR: ", error);
   }
   return (
     <div>
