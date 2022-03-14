@@ -1,19 +1,24 @@
-import cloudsBg from "./images/clouds.png";
-import nightBg from "./images/nightSky.jpeg";
-import dayBg from "./images/daysky2.jpg";
-
 import "./styles.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Button from "./components/Button/Button.js";
 import ChooseLocation from "./components/ChooseLocation/ChooseLocation";
+import ChooseFavorites from "./components/ChooseFavorites/ChooseFavorites";
 import AirQualityReport from "./components/AirQualityReport/AirQualityReport";
 import Map from "./components/Map/Map";
 import { fetchLocalData } from "./fetch";
 
+// import cloudsBg from "./images/clouds.png";
+// import nightBg from "./images/nightSky.jpeg";
+// import dayBg from "./images/daysky2.jpg";
+const dayBg =
+  "https://rawcdn.githack.com/GregNicholas/air-quality/a7b21c237daaa81e5ef281ceb1a9998d08fca558/src/images/daysky2.jpg";
+const nightBg =
+  "https://rawcdn.githack.com/GregNicholas/air-quality/7459aa15cc62ab21726da41cd77e81a597b94b70/src/images/nightSky.jpeg";
+
 export default function App() {
   const [localData, setLocalData] = useState("");
-  const [chooseLocation, setChooseLocation] = useState(false);
+  const [chooseLocation, setChooseLocation] = useState("auto");
   const [locationData, setLocationData] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -68,10 +73,15 @@ export default function App() {
       className="App"
       style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
     >
-      <Navbar />
+      <Navbar
+        chooseLocation={chooseLocation}
+        setChooseLocation={setChooseLocation}
+        setLocationData={setLocationData}
+      />
       <div className="container">
-        <section className="search-container">
-          <Button
+        {chooseLocation !== "auto" && (
+          <section className="search-container">
+            {/* <Button
             btnText={chooseLocation ? "use your location" : "choose location"}
             clickHandler={() => {
               if (chooseLocation) {
@@ -81,25 +91,38 @@ export default function App() {
                 setChooseLocation(true);
               }
             }}
-          />
-          {chooseLocation && (
-            <ChooseLocation
-              locationData={locationData}
-              setLocationData={setLocationData}
-              error={error}
-              setError={setError}
-              setLoding={setLoading}
-            />
-          )}
-        </section>
+          /> */}
+            {chooseLocation === "lookup" && (
+              <ChooseLocation
+                locationData={locationData}
+                setLocationData={setLocationData}
+                error={error}
+                setError={setError}
+                setLoding={setLoading}
+              />
+            )}
+            {chooseLocation === "favorites" && (
+              <ChooseFavorites
+                favorites={favorites}
+                locationData={locationData}
+                setLocationData={setLocationData}
+                error={error}
+                setError={setError}
+                setLoding={setLoading}
+              />
+            )}
+          </section>
+        )}
         <section className="results-container">
           {localData && latitude && longitude && (
             <>
+              {loading && <h2>Loading...</h2>}
               <AirQualityReport
                 data={reportData}
                 favorites={favorites}
                 updateFavorites={updateFavorites}
               />
+
               <Map mapData={reportData} center={center} zoom={zoom} />
             </>
           )}

@@ -23,10 +23,10 @@ export default function Select({
   return (
     <Main>
       <label>
-        Choose {category}
+        {category}
         <DropDownContainer>
           <DropDownHeader onClick={toggleDropDown}>
-            {selectedOption || "-select-"}
+            {selectedOption || "-choose-"}
           </DropDownHeader>
           {isOpen && (
             <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>

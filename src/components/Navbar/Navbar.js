@@ -1,9 +1,14 @@
 import React from "react";
 import { NavBar } from "./NavBar-Styles";
+import { BtnContainer } from "./NavBar-Styles";
 import Button from "../Button/Button";
 import { useSnackbar } from "react-simple-snackbar";
 
-export default function Navbar() {
+export default function Navbar({
+  chooseLocation,
+  setChooseLocation,
+  setLocationData
+}) {
   const options = {
     position: "top-right",
     style: {
@@ -32,12 +37,33 @@ export default function Navbar() {
       <h1 className="logo" onClick={() => openSnackbar("Breathe fresh air")}>
         AirQ
       </h1>
-      <div style={{ marginTop: ".5rem" }}>
-        <Button btnText={"Choose Location"} clickHandler={handleFavorites} />
-      </div>
-      <div style={{ marginTop: ".5rem" }}>
-        <Button btnText={"Favorites"} clickHandler={handleFavorites} />
-      </div>
+      <BtnContainer>
+        <div style={{ marginTop: ".5rem" }}>
+          <Button
+            btnText="current location"
+            clickHandler={() => {
+              setChooseLocation("auto");
+              setLocationData("");
+            }}
+          />
+        </div>
+        <div style={{ marginTop: ".5rem" }}>
+          <Button
+            btnText="choose location"
+            clickHandler={() => {
+              setChooseLocation("lookup");
+            }}
+          />
+        </div>
+        <div style={{ marginTop: ".5rem" }}>
+          <Button
+            btnText={"Favorites"}
+            clickHandler={() => {
+              setChooseLocation("favorites");
+            }}
+          />
+        </div>
+      </BtnContainer>
     </NavBar>
   );
 }

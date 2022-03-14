@@ -9,11 +9,11 @@ export const Main = styled("div")`
   max-width: 350px;
   text-align: end;
   border-radius: 5px;
-  margin: 0.5rem 0 0 0;
+  margin: 0 0 0.5rem 0;
   box-shadow: 4px 4px 15px black;
 `;
 export const DropDownContainer = styled("div")`
-  width: 12rem;
+  width: 15rem;
   margin: 0 auto;
   padding: 0.5rem;
   display: inline-block;
@@ -33,7 +33,7 @@ export const DropDownHeader = styled("div")`
 `;
 export const DropDownListContainer = styled("div")`
   position: absolute;
-  width: 10rem;
+  width: 14rem;
   z-index: 1000;
 `;
 export const DropDownList = styled("ul")`

@@ -13,6 +13,7 @@ body {
 
 .App {
   /* background-image: url("./images/clouds.png"); */
+  background: skyblue;
   background-size: cover;
   font-family: sans-serif;
   width: 100vw;
@@ -29,7 +30,7 @@ body {
 }
 
 .results-container {
-  margin: 1rem 0;
+  margin: 0;
 }
 
 @media only screen and (min-width: 768px) {
