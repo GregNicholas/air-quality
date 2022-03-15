@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   LocationCard,
   LocationCardHeading,
@@ -10,11 +9,20 @@ import {
   WeatherContainer
 } from "./AirQualityReport-Styles";
 import { aqiInfo } from "../../aqiInfo";
-import { FaTemperatureHigh, FaWind, FaHeart, FaRegHeart } from "react-icons/fa";
+import {
+  FaTemperatureHigh,
+  FaWind,
+  FaHeart,
+  FaRegHeart,
+  FaRegSadTear
+} from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
+import { BiHappyHeartEyes } from "react-icons/bi";
+import { CgSmileNeutral } from "react-icons/cg";
+import { HiOutlineEmojiHappy, HiOutlineEmojiSad } from "react-icons/hi";
+import { GrAlert } from "react-icons/gr";
 
 export default function AirQualityReport({ data, favorites, updateFavorites }) {
-  // const [isFavorite, setIsFavorite] = useState(false);
   const isFavorite = favorites.some(
     (f) => f.city === data.city && f.state === data.state
   );
@@ -27,7 +35,6 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
 
   console.log(data);
   const handleFavorite = () => {
-    //setIsFavorite((prev) => !prev);
     updateFavorites({
       city: data.city,
       state: data.state,
@@ -55,9 +62,38 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
   }
 
   const faceStyle = {
+    fontSize: "2rem",
     background: aqiInfo.color,
     padding: "1rem 0.5rem",
     textAlign: "center"
+  };
+
+  let customJSX;
+  switch (displayInfo.face) {
+    case "BiHappyHeartEyes":
+      customJSX = <BiHappyHeartEyes />;
+      break;
+    case "HiOutlineEmojiHappy":
+      customJSX = <HiOutlineEmojiHappy />;
+      break;
+    case "CgSmileNeutral":
+      customJSX = <CgSmileNeutral />;
+      break;
+    case "HiOutlineEmojiSad":
+      customJSX = <HiOutlineEmojiSad />;
+      break;
+    case "FaRegSadTear":
+      customJSX = <FaRegSadTear />;
+      break;
+    case "GrAlert":
+      customJSX = <GrAlert />;
+      break;
+    default:
+      customJSX = <HiOutlineEmojiHappy />;
+  }
+
+  const celcTOfahr = (c) => {
+    return (c * 9) / 5 + 32;
   };
 
   return (
@@ -76,7 +112,7 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
 
       <AqiWrapper>
         <AqiData color={displayInfo.color}>
-          <div style={faceStyle}>{displayInfo.face}</div>
+          <div style={faceStyle}>{customJSX}</div>
           <div>
             <AqiInfo>
               <span>US AQI: {aqi}</span>
@@ -88,7 +124,8 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
       </AqiWrapper>
       <WeatherContainer>
         <div className="temperature">
-          <FaTemperatureHigh /> {weather.tp}&deg;C
+          <FaTemperatureHigh /> {weather.tp}&deg;C / {celcTOfahr(weather.tp)}
+          &deg;F
         </div>
         <div className="humidity">
           <WiHumidity /> {weather.hu}%

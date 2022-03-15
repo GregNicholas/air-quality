@@ -8,6 +8,7 @@ export const fetchLocalData = (setLocalData, setError, setLoading) => {
       `https://api.airvisual.com/v2/nearest_city?key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d`
     )
     .then((response) => {
+      console.log(response);
       const data = response.data;
       setLocalData(data);
     })

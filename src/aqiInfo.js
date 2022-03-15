@@ -3,7 +3,7 @@ export const aqiInfo = {
     color: "#A6CE39",
     warning: "Good",
     message: "It’s a great day to be active outside.",
-    face: ":D"
+    face: "BiHappyHeartEyes"
   },
   moderate: {
     color: "#FFF000",
@@ -12,7 +12,7 @@ export const aqiInfo = {
   prolonged or heavy exertion. Watch for symptoms
   such as coughing or shortness of breath. These are
   signs to take it easier.`,
-    face: ":)"
+    face: "HiOutlineEmojiHappy"
   },
   unhealthysensitive: {
     color: "#F68F1F",
@@ -26,7 +26,8 @@ export const aqiInfo = {
   If you have heart disease: Symptoms such as
   palpitations, shortness of breath, or unusual fatigue
   may indicate a serious problem. If you have any of
-  these, contact your heath care provider.`
+  these, contact your heath care provider.`,
+    face: "CgSmileNeutral"
   },
   unhealthy: {
     color: "#EE2324",
@@ -35,7 +36,7 @@ export const aqiInfo = {
     Consider moving activities indoors or rescheduling.
     Everyone else: Reduce prolonged or heavy exertion.
     Take more breaks during outdoor activities. `,
-    face: ":|"
+    face: "HiOutlineEmojiSad"
   },
   veryunhealthy: {
     color: "#8D4098",
@@ -46,7 +47,7 @@ export const aqiInfo = {
     Everyone else: Avoid prolonged or heavy exertion.
     Consider moving activities indoors or rescheduling to
     a time when air quality is better.`,
-    face: ":("
+    face: "FaRegSadTear"
   },
   hazardous: {
     color: "#88181C",
@@ -55,6 +56,6 @@ export const aqiInfo = {
     Sensitive groups: Remain indoors and keep activity
     levels low. Follow tips for keeping particle levels low
     indoors. `,
-    face: ":'O"
+    face: "GrAlert"
   }
 };
