@@ -14,10 +14,10 @@ body {
 .App {
   /* background-image: url("./images/clouds.png"); */
   background: skyblue;
-  background-size: cover;
   font-family: sans-serif;
   width: 100vw;
-  height: 100vh;
+  position: absolute;
+  background-size: cover;
 }
 
 .container {

@@ -1,7 +1,8 @@
 import axios from "axios";
 const apiBaseURL = "https://api.airvisual.com/v2/";
-const API_KEY = "key=e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d";
-
+const API_KEY = "key=7d313426-f697-4075-a211-0dbc09dc9bd2";
+// 7d313426-f697-4075-a211-0dbc09dc9bd2
+// e2491cd6-da4b-49b6-bd92-c0d69d8f8a8d
 export const fetchLocalData = (setLocalData, setError, setLoading) => {
   axios
     .get(

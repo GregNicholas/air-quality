@@ -21,7 +21,9 @@ export default function App() {
   const [locationData, setLocationData] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(window.localStorage.getItem("favoritePlaces")) || []
+  );
   let latitude = null,
     longitude = null;
   const zoom = 7;
@@ -57,15 +59,22 @@ export default function App() {
     if (!favorites.some((f) => f.city === loc.city && f.state === loc.state)) {
       setFavorites((prev) => {
         const newFavs = [...prev, loc];
+        window.localStorage.setItem("favoritePlaces", JSON.stringify(newFavs));
         return newFavs;
       });
     } else {
       const removedFromFavs = favorites.filter(
         (f) => f.city !== loc.city && f.state !== loc.state
       );
+      window.localStorage.setItem(
+        "favoritePlaces",
+        JSON.stringify(removedFromFavs)
+      );
       setFavorites(removedFromFavs);
     }
   };
+
+  console.log(locationData);
 
   return (
     <div
@@ -105,7 +114,7 @@ export default function App() {
           </section>
         )}
         <section className="results-container">
-          {localData && latitude && longitude && (
+          {reportData && latitude && longitude && (
             <>
               {loading && <h2>Loading...</h2>}
               <AirQualityReport

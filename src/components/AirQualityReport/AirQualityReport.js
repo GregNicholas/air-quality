@@ -43,8 +43,6 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
     });
   };
 
-  console.log("favorites: ", favorites);
-
   let displayInfo = {};
 
   if (aqi < 51) {
@@ -106,7 +104,11 @@ export default function AirQualityReport({ data, favorites, updateFavorites }) {
           <p style={{ fontStyle: "italic" }}>{now}</p>
         </div>
         <Favorite onClick={handleFavorite}>
-          {isFavorite ? <FaHeart style={{ color: "red" }} /> : <FaRegHeart />}
+          {isFavorite ? (
+            <FaHeart style={{ color: "red", cursor: "pointer" }} />
+          ) : (
+            <FaRegHeart style={{ cursor: "pointer" }} />
+          )}
         </Favorite>
       </LocationCardHeading>
 
