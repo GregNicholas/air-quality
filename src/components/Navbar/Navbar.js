@@ -18,19 +18,16 @@ export default function Navbar({
       fontFamily: "Menlo, monospace",
       fontSize: "1.25rem",
       textAlign: "center",
-      paddingTop: "5px"
+      paddingTop: "2px"
     },
     closeStyle: {
       paddingBottom: "14px",
-      color: "lightcoral",
-      fontSize: "1rem"
+      color: "#FFF",
+      fontSize: "1rem",
+      paddingTop: "7px"
     }
   };
-  const [openSnackbar, closeSnackbar] = useSnackbar(options);
-
-  const handleFavorites = () => {
-    console.log("toggle favorites list");
-  };
+  const [openSnackbar] = useSnackbar(options);
 
   return (
     <NavBar>

@@ -3,7 +3,7 @@ import { devices } from "../../device";
 
 export const NavBar = styled.header`
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0.5rem 1rem 1.5rem;
+  padding: 1rem 0.5rem 1rem 1.5rem;
   position: relative;
   top: 0;
   height: fit-content;
