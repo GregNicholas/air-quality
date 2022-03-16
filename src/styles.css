@@ -9,6 +9,7 @@
 body {
   height: 100vh;
   color: #333;
+  background: skyblue;
 }
 
 .App {
@@ -16,9 +17,7 @@ body {
   background: skyblue;
   font-family: sans-serif;
   width: 100vw;
-  position: absolute;
   background-size: cover;
-  height: 100vh;
 }
 
 .container {
