@@ -77,10 +77,7 @@ export default function App() {
   console.log(locationData);
 
   return (
-    <div
-      className="App"
-      style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
-    >
+    <div className="App" style={{ backgroundImage: `url(${background})` }}>
       <Navbar
         chooseLocation={chooseLocation}
         setChooseLocation={setChooseLocation}

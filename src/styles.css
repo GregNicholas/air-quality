@@ -18,6 +18,7 @@ body {
   width: 100vw;
   position: absolute;
   background-size: cover;
+  height: 100vh;
 }
 
 .container {
