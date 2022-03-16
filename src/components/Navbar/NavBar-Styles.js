@@ -3,11 +3,12 @@ import { devices } from "../../device";
 
 export const NavBar = styled.header`
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  padding: 0.5rem 0.5rem 1rem 1.5rem;
   position: relative;
   top: 0;
   height: fit-content;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 0px 0px 14px 2px lightgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
