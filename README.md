@@ -4,7 +4,9 @@
 
 There is an attempt to fetch local data on page load. If the option to choose location is clicked, the drop down to select country, state, city will appear in order as each one is selected.
 
-The info card for the desired location should be color coded based on the current air quality, and include a custom message</p>
+The info card for the desired location should be color coded based on the current air quality, and include a custom message
+
+Heart icon on info card to save the location. If saved locations exist, the user can open a drop down list to select from them.</p>
 
 ## Built With
 
@@ -17,7 +19,7 @@ The info card for the desired location should be color coded based on the curren
 
 ## Links
 
-- [Repo](https://github.com/GregNicholas/air-quality  Air quality app "AirQ Air quality app Repo")
+- [Repo](https://github.com/GregNicholas/air-quality Air quality app "AirQ Air quality app Repo")
 
 - [Live](https://csb-3m1df2-gregnicholas.vercel.app/ "Live View")
 
@@ -37,7 +39,7 @@ In the project directory, you can run:
 
 ### `npm start" : "react-scripts start"`,
 
-The app is built using `create-react-app` so this command Runs the app in Development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. 
+The app is built using `create-react-app` so this command Runs the app in Development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `"npm run build": "react-scripts build"`,
 
@@ -49,7 +51,7 @@ Launches the test runner in the interactive watch mode.
 
 ## Future Updates
 
-- [ ] Save Favorite Locations
+- [x] Save Favorite Locations
 - [ ] Drop Multiple points on map
 
 ## Author
@@ -59,6 +61,5 @@ Launches the test runner in the interactive watch mode.
 - [Profile](https://github.com/GregNicholas "Greg Schoenberg")
 - [Email](mailto:gregschoenberg@gmail.com?subject=Hi "Hi!")
 - [Website](https://gregschoenberg.com "Welcome")
-
 
 Contributions, issues, and feature requests are welcome!
