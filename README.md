@@ -27,7 +27,7 @@ Heart icon on info card to save the location. If saved locations exist, the user
 
 ## Screenshots
 
-![Home Page](/screenshots/1.png "Home Page")
+![Home Page](./src/images/AirQscreenshot.png)
 
 ![](/screenshots/2.png)
 
