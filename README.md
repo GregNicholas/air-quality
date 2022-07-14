@@ -19,9 +19,9 @@ Heart icon on info card to save the location. If saved locations exist, the user
 
 ## Links
 
-- [Repo](https://github.com/GregNicholas/air-quality Air quality app "AirQ Air quality app Repo")
-
 - [Live](https://csb-3m1df2-gregnicholas.vercel.app/ "Live View")
+
+- [Repo](https://github.com/GregNicholas/air-quality "AirQ Air quality app Repo")
 
 - [API](https://api-docs.iqair.com/ "Air Visual API")
 
