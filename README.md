@@ -8,6 +8,8 @@ The info card for the desired location should be color coded based on the curren
 
 Heart icon on info card to save the location. If saved locations exist, the user can open a drop down list to select from them.</p>
 
+*Note: recent testing has found the API is very limited and will return errors when too many searches are performed quickly. Considering remedies and improved error handling
+
 ## Built With
 
 - Reactjs
